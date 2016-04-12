@@ -12,20 +12,24 @@ During the execution of one batch, the user may enter another set of URLs and st
 
 Redirection (301, 302) responses should be followed up to 5 times and the status of new page returned.
 
-Example
-Batch #1
+#Example
+##Batch #1
 
 site1.com HTTP response: 200 OK; length: 12345 bytes
-site2.com HTTP response: still working...
+
+site2.com HTTP response: still working... 
+
 site3.com HTTP response: 301 Redirect; length: 214 bytes
+
 redirected to www.site3.com HTTP response: still working…
 
 Progress
 [===---------] 1 / 3
  
-Batch #2
+##Batch #2
 
 site4.com HTTP response: still working
+
 site5.com HTTP response: still working
 
 Progress
