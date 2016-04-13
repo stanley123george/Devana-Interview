@@ -1,36 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="row">
+    <div class="row" id="container">
         <div class="col-sm-2">
             <form action="javascript:ajax_stream()">
-                <textarea id="textAreaUrls" rows=50></textarea>
+                <textarea id="textAreaUrls" rows=10></textarea>
                 <input type="submit">
             </form>
-        </div>
-        <div class="col-sm-2">
-            caoooo
         </div>
     </div>
 {% endblock %}
 
 {% block javascripts %}
-<script type="text/javascript">   
+<script type="text/javascript"> 
+    var submitCount = 0;  
     function doClear()
     {
         document.getElementById("textAreaUrls").value = "";
     }
      
-    function log_message(message)
-    {
-        console.log(message);
-    }
-     
     function ajax_stream()
     {
         var urlsArray = $('#textAreaUrls').val().split('\n');
-        console.log(urlsArray);
+
+        makeParentDiv(submitCount); //napravi div za novu listu
+
+        for (var i = 0; i < urlsArray.length; i++) {
+            insert(urlsArray[i]+": still working", submitCount, i); //dodaj sve na still working
+        }
+        
         doClear();
+
         if (!window.XMLHttpRequest)
         {
             log_message("Your browser does not support the native XMLHttpRequest object.");
@@ -38,33 +38,70 @@
         }
         try
         {
-            var xhr = new XMLHttpRequest(); 
-            console.log("hi"); 
+            var xhr = new XMLHttpRequest();
             xhr.previous_text = '';
             xhr.onerror = function() { log_message("[XHR] Fatal Error."); };
             xhr.onreadystatechange = function() 
             {
                 try
                 {
-                    console.log("ready state: "+xhr.readyState);
                     if (xhr.readyState > 2)
                     {
-                        var new_response = xhr.responseText.substring(xhr.previous_text.length);
-                        log_message(new_response);
+                        var stringResponse = xhr.responseText.substring(xhr.previous_text.length);
+                        var sTemp = "";
+                        var responseObjects = [];
+                        for(var i=0; i<stringResponse.length; ++i)
+                        {
+                            sTemp += stringResponse[i];
+                            if (stringResponse[i] == "}")
+                            {
+                                responseObjects.push(JSON.parse(sTemp));
+                                sTemp = "";
+                            }
+                        }
+                        for (var i = 0; i < responseObjects.length; i++) {
+                            var responseObject = responseObjects[i];
+                            edit(responseObject["url"]+":"+responseObject["status"], responseObject["parent"], responseObject["index"]);
+                        }
+
                         xhr.previous_text = xhr.responseText;
                     }   
                 }
                 catch (e)
                 {}
             };
-            xhr.open("POST", "http://localhost/devana-interview/web/app_dev.php/check-emails", true);
+            xhr.open("POST", "http://localhost/devana-interview/web/app_dev.php/check-urls", true); //send post request
             xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhr.send("emails="+urlsArray);      
+            xhr.send("urls="+urlsArray+"&parent="+submitCount);      
         }
         catch (e)
         {
             log_message("<b>[XHR] Exception: " + e + "</b>");
         }
+
+        submitCount++; //povecaj id za sledeci div
+    }
+
+    function makeParentDiv(id){
+        var element = document.createElement("div");
+        element.setAttribute("id", "parent-"+id);
+        element.setAttribute("class", "col-sm-2");
+        document.getElementById("container").appendChild(element);
+    }
+
+    function insert(text, parentDivId, elementId) {
+        console.log(parentDivId);
+        var element = document.createElement("div");
+        element.setAttribute("id", parentDivId+"-"+elementId);
+        element.appendChild(document.createTextNode(text));
+        document.getElementById("parent-"+parentDivId).appendChild(element);
+    }
+
+    function edit(text, parentDivId, elementId){
+        console.log(text);
+        var element = document.getElementById(parentDivId+"-"+elementId);
+        element.innerHTML = "";
+        element.appendChild(document.createTextNode(text));
     }
 </script>
 {% endblock %}
