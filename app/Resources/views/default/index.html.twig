@@ -3,8 +3,8 @@
 {% block body %}
     <div class="row">
         <div class="col-sm-2">
-            <form action="" id="urlsform">
-                <textarea name="urls" style="height:100%" placeholder="Enter urls here..."></textarea>
+            <form action="javascript:ajax_stream()">
+                <textarea id="textAreaUrls" rows=50></textarea>
                 <input type="submit">
             </form>
         </div>
@@ -12,4 +12,59 @@
             caoooo
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript">   
+    function doClear()
+    {
+        document.getElementById("textAreaUrls").value = "";
+    }
+     
+    function log_message(message)
+    {
+        console.log(message);
+    }
+     
+    function ajax_stream()
+    {
+        var urlsArray = $('#textAreaUrls').val().split('\n');
+        console.log(urlsArray);
+        doClear();
+        if (!window.XMLHttpRequest)
+        {
+            log_message("Your browser does not support the native XMLHttpRequest object.");
+            return;
+        }
+        try
+        {
+            var xhr = new XMLHttpRequest(); 
+            console.log("hi"); 
+            xhr.previous_text = '';
+            xhr.onerror = function() { log_message("[XHR] Fatal Error."); };
+            xhr.onreadystatechange = function() 
+            {
+                try
+                {
+                    console.log("ready state: "+xhr.readyState);
+                    if (xhr.readyState > 2)
+                    {
+                        var new_response = xhr.responseText.substring(xhr.previous_text.length);
+                        log_message(new_response);
+                        xhr.previous_text = xhr.responseText;
+                    }   
+                }
+                catch (e)
+                {}
+            };
+            xhr.open("POST", "http://localhost/devana-interview/web/app_dev.php/check-emails", true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send("emails="+urlsArray);      
+        }
+        catch (e)
+        {
+            log_message("<b>[XHR] Exception: " + e + "</b>");
+        }
+    }
+</script>
 {% endblock %}
