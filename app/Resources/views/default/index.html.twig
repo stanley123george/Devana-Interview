@@ -102,7 +102,7 @@
                             if (responseObject["status"] === 200){
                                 edit(responseObject["url"], responseObject["status"], responseObject["length"], responseObject["parent"], responseObject["index"]);
                             }else if (responseObject["status"] === 301 || responseObject["status"] === 302){
-                                console.log("Redirect: "+responseObject["url"]+"\nStatus: "+ responseObject["status"]);
+                                // console.log("Redirect: "+responseObject["url"]+"\nStatus: "+ responseObject["status"]);
                                 addRedirect(responseObject["nextUrl"], responseObject["status"], responseObject["length"], responseObject["url"]);
                             }else{
                                 edit(responseObject["url"], responseObject["status"], 0,responseObject["parent"], responseObject["index"]);
@@ -192,9 +192,9 @@
     }
 
     function addRedirect(urlText, codeText, lengthText, parentRowText){
-        console.log(urlText, parentRowText);
+        // console.log(urlText, parentRowText);
         var elements = document.getElementsByName(parentRowText);
-        console.log("count: "+elements.length);
+        // console.log("count: "+elements.length);
         for (i = 0; i < elements.length; i++) {
             var parentRow = elements[i];
 
