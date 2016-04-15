@@ -55,8 +55,14 @@
 
         makeParentDiv(submitCount); //napravi div za novu listu
 
+        var arrayForSending = [];
+
         for (var i = 0; i < urlsArray.length; i++) {
-            insert(urlsArray[i], "still working", 0, submitCount, i); //dodaj sve na still working
+            var url = urlsArray[i].trim();
+            // console.log(url);
+            if (url === "") continue;
+            arrayForSending.push(url);
+            insert(url, "still working", 0, submitCount, i); //dodaj sve na still working
         }
         
         doClear();
@@ -111,7 +117,7 @@
             };
             xhr.open("POST", "{{ path('checkUrls') }}", true); //send post request
             xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhr.send("urls="+urlsArray+"&parent="+submitCount);      
+            xhr.send("urls="+arrayForSending+"&parent="+submitCount);      
         }
         catch (e)
         {
