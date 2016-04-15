@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "01f398a2d4b546db5ca8fb6a24b5969c",
-    "content-hash": "2f81a09a301813f46398e689e7df1f9f",
+    "hash": "44895ba9d0c24f5e406d3cf06a43804b",
+    "content-hash": "bfafe873705b78fcefea740f994bc13e",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -774,125 +774,6 @@
             "time": "2016-01-05 21:34:58"
         },
         {
-            "name": "eightpoints/guzzle-bundle",
-            "version": "v4.5.0",
-            "target-dir": "EightPoints/Bundle/GuzzleBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/8p/GuzzleBundle.git",
-                "reference": "d79f2fc324c5f7d58e1169fb857fd14beb5e760b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/8p/GuzzleBundle/zipball/d79f2fc324c5f7d58e1169fb857fd14beb5e760b",
-                "reference": "d79f2fc324c5f7d58e1169fb857fd14beb5e760b",
-                "shasum": ""
-            },
-            "require": {
-                "eightpoints/guzzle-wsse-middleware": "~4.0",
-                "guzzlehttp/guzzle": "~6.0",
-                "php": ">=5.5.0",
-                "psr/log": "~1.0",
-                "symfony/dependency-injection": "~2.3|~3.0",
-                "symfony/event-dispatcher": "~2.3|~3.0",
-                "symfony/expression-language": "~2.3|~3.0",
-                "symfony/http-kernel": "~2.3|~3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "*",
-                "symfony/config": "~2.3|~3.0"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "EightPoints\\Bundle\\GuzzleBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Community",
-                    "homepage": "https://github.com/8p/GuzzleBundle/contributors"
-                },
-                {
-                    "name": "Florian Preusner",
-                    "email": "florian.preusner@8points.de",
-                    "homepage": "https://github.com/florianpreusner"
-                }
-            ],
-            "description": "Integrates Guzzle into Symfony2, comes with WSSE Plugin for RESTful Interfaces",
-            "homepage": "https://github.com/8p/GuzzleBundle",
-            "keywords": [
-                "Guzzle",
-                "bundle",
-                "client",
-                "curl",
-                "http client",
-                "rest",
-                "symfony",
-                "web service"
-            ],
-            "time": "2016-04-08 11:54:31"
-        },
-        {
-            "name": "eightpoints/guzzle-wsse-middleware",
-            "version": "v4.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/8p/guzzle-wsse-middleware.git",
-                "reference": "362a243d15901ff6e3e8bce91e6d1dc172c5035c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/8p/guzzle-wsse-middleware/zipball/362a243d15901ff6e3e8bce91e6d1dc172c5035c",
-                "reference": "362a243d15901ff6e3e8bce91e6d1dc172c5035c",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": ">=6.0",
-                "php": ">=5.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "EightPoints\\Guzzle": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Florian Preusner",
-                    "email": "florian.preusner@8points.de",
-                    "homepage": "https://github.com/florianpreusner"
-                },
-                {
-                    "name": "Community",
-                    "homepage": "https://github.com/eightpoints/guzzle-wsse-middleware/contributors"
-                }
-            ],
-            "description": "WSSE Middleware for Guzzle, a PHP HTTP client library and framework for building RESTful web service clients",
-            "homepage": "https://github.com/8p/guzzle-wsse-middleware",
-            "keywords": [
-                "client",
-                "curl",
-                "framework",
-                "http",
-                "http client",
-                "middleware",
-                "plugin",
-                "rest",
-                "web service",
-                "wsse"
-            ],
-            "time": "2016-02-08 22:10:28"
-        },
-        {
             "name": "guzzlehttp/guzzle",
             "version": "6.2.0",
             "source": {
@@ -1007,16 +888,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.2.3",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "2e89629ff057ebb49492ba08e6995d3a6a80021b"
+                "reference": "31382fef2889136415751badebbd1cb022a4ed72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/2e89629ff057ebb49492ba08e6995d3a6a80021b",
-                "reference": "2e89629ff057ebb49492ba08e6995d3a6a80021b",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/31382fef2889136415751badebbd1cb022a4ed72",
+                "reference": "31382fef2889136415751badebbd1cb022a4ed72",
                 "shasum": ""
             },
             "require": {
@@ -1061,7 +942,7 @@
                 "stream",
                 "uri"
             ],
-            "time": "2016-02-18 21:54:00"
+            "time": "2016-04-13 19:56:01"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1166,16 +1047,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.18.2",
+            "version": "1.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "064b38c16790249488e7a8b987acf1c9d7383c09"
+                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/064b38c16790249488e7a8b987acf1c9d7383c09",
-                "reference": "064b38c16790249488e7a8b987acf1c9d7383c09",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/5f56ed5212dc509c8dc8caeba2715732abb32dbf",
+                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf",
                 "shasum": ""
             },
             "require": {
@@ -1240,7 +1121,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-04-02 13:12:58"
+            "time": "2016-04-12 18:29:35"
         },
         {
             "name": "paragonie/random_compat",
@@ -1590,20 +1471,20 @@
         },
         {
             "name": "symfony/monolog-bundle",
-            "version": "v2.10.0",
+            "version": "2.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/monolog-bundle.git",
-                "reference": "82fd8f36e2cccbe94faf237403c48052d4d4b77e"
+                "reference": "e7caf4936c7be82bc6d68df87f1d23a0d5bf6e00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/82fd8f36e2cccbe94faf237403c48052d4d4b77e",
-                "reference": "82fd8f36e2cccbe94faf237403c48052d4d4b77e",
+                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/e7caf4936c7be82bc6d68df87f1d23a0d5bf6e00",
+                "reference": "e7caf4936c7be82bc6d68df87f1d23a0d5bf6e00",
                 "shasum": ""
             },
             "require": {
-                "monolog/monolog": "~1.12",
+                "monolog/monolog": "~1.18",
                 "php": ">=5.3.2",
                 "symfony/config": "~2.3|~3.0",
                 "symfony/dependency-injection": "~2.3|~3.0",
@@ -1618,7 +1499,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.9.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
@@ -1646,7 +1527,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2016-03-13 15:55:56"
+            "time": "2016-04-13 16:21:01"
         },
         {
             "name": "symfony/polyfill-intl-icu",
