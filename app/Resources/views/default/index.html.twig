@@ -2,15 +2,30 @@
 
 {% block stylesheets %}
 <style type="text/css">
-    .redirect{
-        background-color: blue;
-        color: white;
-    }
-    .firstCall{
-        background-color: green;
-        color: white;
-    }
-</style>
+       .redirect{
+           background-color: #DBE5F1 ;
+           color: #393939 ;
+           border-top-width: 0px;
+           /*padding-left: 5px;*/
+       }
+
+               .redirect > td {
+                   border: 0px !important;
+                   padding-left: 25px !important;
+                   /*text-align: left !important;*/
+               }
+
+       .firstCall{
+           background-color: #B8CCE4 ;
+           color: #393939 ;
+       }
+                .firstCall > td {
+                       border-left: 0px !important;
+                       border-bottom: 0px !important;
+                       border-right: 0px !important;
+                       border-top: 1px solid #8195ad  !important;
+                   }
+   </style>
 {% endblock %}
 
 {% block body %}
@@ -108,6 +123,8 @@
 
     function makeParentDiv(id){
         var element = document.createElement("table");
+        var tbody = document.createElement("tbody");
+        tbody.setAttribute("id", "mainTBody");
         element.setAttribute("id", "parent-"+id);
         element.setAttribute("class", "table table-bordered");
 
@@ -128,12 +145,13 @@
         var thead = document.createElement("thead");
         thead.appendChild(row);
         element.appendChild(thead);
+        element.appendChild(tbody);
 
         document.getElementById("container").insertBefore(element, document.getElementById("container").firstChild);
     }
 
     function insert(urlText, codeText, lengthText, parentDivId, elementId) {
-        var tbody = document.createElement("tbody");
+        var tbody = document.getElementById("mainTBody");
         var row = document.createElement("tr");
         row.setAttribute("id", parentDivId+"-"+elementId);
         row.setAttribute("name", urlText);
@@ -152,8 +170,6 @@
         row.appendChild(length);
 
         tbody.appendChild(row);
-
-        document.getElementById("parent-"+parentDivId).appendChild(tbody);
     }
 
     function edit(urlText, codeText, lengthText, parentDivId, elementId){
@@ -175,6 +191,9 @@
         console.log("count: "+elements.length);
         for (i = 0; i < elements.length; i++) {
             var parentRow = elements[i];
+
+            if (parentRow.nextSibling.getAttribute("name") === urlText) continue;
+
             parentRow.childNodes[1].innerHTML = "";
             parentRow.childNodes[2].innerHTML = "";
 
